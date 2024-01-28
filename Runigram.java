@@ -30,19 +30,20 @@ public class Runigram {
 	 * stored in the given PPM file. */
 	public static Color[][] read(String fileName) {
 		In in = new In(fileName);
-		// Reads the file header, ignoring the first and the third lines.
 		in.readString();
 		int numCols = in.readInt();
 		int numRows = in.readInt();
 		in.readInt();
-		// Creates the image array
 		Color[][] image = new Color[numRows][numCols];
-		// Reads the RGB values from the file, into the image array. 
-		// For each pixel (i,j), reads 3 values from the file,
-		// creates from the 3 colors a new Color object, and 
-		// makes pixel (i,j) refer to that object.
-		//// Replace the following statement with your code.
-		return null;
+		for(int i = 0; i< numRows; i++) {
+			for(int j = 0; j< numCols; j++) { 
+				int blue = in.readInt();
+				int red = in.readInt();
+				int green = in.readInt();
+				image[i][j] = new Color(red, green, blue);
+			}
+		}
+		return image;
 	}
 
     // Prints the RGB values of a given color.
@@ -60,7 +61,15 @@ public class Runigram {
 	// For example, to check that some image processing function works correctly,
 	// we can apply the function and then use this function to print the resulting image.
 	private static void print(Color[][] image) {
-		//// Replace this comment with your code
+		int cols = image[0].length;
+		int rows = image.length;
+		for (int i = 0; i < rows; i++ ) {
+			for (int j = 0; i < cols; j++) {
+				print(image[i][j]);
+			}
+			
+			System.out.println();
+		}
 	}
 	
 	/**
