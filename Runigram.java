@@ -206,6 +206,7 @@ public class Runigram {
 			morphed = blend(source, blendedImage, alphaStep);
 			display(morphed);
 			StdDraw.pause(500);
+		}
 	}
 	
 	/** Creates a canvas for the given image. */
